@@ -4,15 +4,6 @@ import resourcesList from '../mockData.json'
 const RecResources = () => {
     const [query, setQuery] = useState("");
 
-    const allResources = () => {
-        console.log("hererere")
-        return (
-            <>
-            
-            </>
-        )
-    }
-
   return (
     <>
     <ul type="list" className="divide-y divide-gray-100 p-6 lg:px-40">
