@@ -1,6 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
-
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import {
@@ -12,7 +9,7 @@ import {
   SquaresPlusIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 const subjects = [
   { name: 'Immunohematology (Blood Bank)', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
