@@ -1,73 +1,60 @@
-import React from 'react'
+import {React, useState} from 'react'
+import Search from '../Search/Search'
+import resourcesList from '../mockData.json'
 
 const RecResources = () => {
-    const resourcesList = [
-        {
-          name: 'Definitions',
-          subject: 'Immunohematology',
-          type: 'PDF',
-          uploaded: '3h ago',
-          uploadedDateTime: '2023-01-23T13:23Z',
-        },
-        {
-          name: 'Chapter 1 class notes',
-          subject: 'Immunology',
-          type: 'presentation',
-          uploaded: '3h ago',
-          uploadedDateTime: '2023-01-23T13:23Z',
-        },
-        {
-          name: 'Vincent notes',
-          subject: 'Microbiology',
-          type: 'PDF',
-          uploaded: '5d ago',
-          uploadedDateTime: '2023-01-23T13:23Z',
-        },
-        {
-          name: 'Homework',
-          subject: 'Hematology',
-          type: 'PDF',
-          uploaded: '3h ago',
-          uploadedDateTime: '2023-01-23T13:23Z',
-        },
-        {
-          name: 'Workwork',
-          subject: 'Urinalysis',
-          type: 'PDF',
-          uploaded: '3h ago',
-          uploadedDateTime: '2023-01-23T13:23Z',
-        },
-        {
-          name: 'Formulas Sheet',
-          subject: 'Chemistry',
-          type: 'PDF',
-          uploaded: null,
-          uploadedDateTime: '2023-01-23T13:23Z',
-        },
-      ]
+    const [query, setQuery] = useState("");
 
+    const allResources = () => {
+        console.log("hererere")
+        return (
+            <>
+            
+            </>
+        )
+    }
 
   return (
     <>
     <ul type="list" className="divide-y divide-gray-100 p-6 lg:px-40">
-      {resourcesList.map((resources) => (
-        <li key={resources.subject} className="flex justify-between gap-x-6 py-5">
-          <div className="flex min-w-0 gap-x-4">
-            <div className="min-w-0 flex-auto">
-              <p className="text-sm font-semibold leading-6 text-gray-900">{resources.name}</p>
-              <p className="mt-1 truncate text-xs leading-5 text-gray-500">{resources.subject}</p>
-            </div>
-          </div>
-          <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-            <p className="text-sm leading-6 text-gray-900">{resources.type}</p>
-            {resources.uploaded && (
-              <p className="mt-1 text-xs leading-5 text-gray-500">
-                Uploaded <time dateTime={resources.uploadedDateTime}>{resources.uploaded}</time>
-              </p>
-            ) }
-          </div>
-        </li>
-      ))}
+    
+    <div>
+        <input 
+        placeholder="Search for a resource" 
+        value={query}
+        className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        onChange={(event) => setQuery(event.target.value)}
+          />
+      </div>
+      {
+        resourcesList.length && resourcesList.filter((resources) => {
+            if (query == "") {
+                return resourcesList;
+            }
+            else if (query != "" && resources.name.toLowerCase().includes(query.toLowerCase())) {
+                    //returns filtered array
+                    return resources;
+                }
+            }).map((resource) => (
+                <li key={resource.subject} className="flex justify-between gap-x-6 py-5">
+                      <div className="flex min-w-0 gap-x-4">
+                        <div className="min-w-0 flex-auto">
+                          <p className="text-sm font-semibold leading-6 text-gray-900">{resource.name}</p>
+                          <p className="mt-1 truncate text-xs leading-5 text-gray-500">{resource.subject}</p>
+                        </div>
+                      </div>
+                      <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+                        <p className="text-sm leading-6 text-gray-900">{resource.type}</p>
+                        {resource.uploaded && (
+                          <p className="mt-1 text-xs leading-5 text-gray-500">
+                            Uploaded <time dateTime={resource.uploadedDateTime}>{resource.uploaded}</time>
+                          </p>
+                        ) }
+                      </div>
+                    </li>
+            ))}
+
+  
     </ul>
     </>
   )
