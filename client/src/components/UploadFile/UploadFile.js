@@ -3,48 +3,32 @@ import { useState } from 'react';
 import axios from 'axios';
 
 export default function Example() {
-  const [file, setFile] = useState(null);
-  const [formData, setFormData] = useState({
-    Id: '',
-    name: '',
-    subject: '',
-    type: '',
-    uploaded: '',
-  });
-  const onChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const onSubmit = async (e) => {
+  const [id, setId] = useState("");
+  const [FileName, setFileName] = useState("");
+  const [Subject, setSubject] = useState("");
+  const [Type, setType] = useState("");
+  const [uploadedby, setuploadedby] = useState("");
+  const [file, setFile] = useState("");
+  
+  const submitImage = async (e) => {
     e.preventDefault();
-  
-    // Prepare FormData to send file to the server
-    const form = new FormData();
-    form.append('pdf', file);
-    form.append('Id', formData.Id);
-    form.append('name', formData.name);
-    form.append('subject', formData.subject);
-    form.append('type', formData.type);
-    form.append('uploaded', formData.uploaded);
-  
-    try {
-      const response = await axios.post('http://localhost:3000/upload', form, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+    const formData = new FormData();
+    formData.append("id",id);
+    formData.append("FileName",FileName);
+    formData.append("Subject",Subject);
+    formData.append("Type",Type);
+    formData.append("uploadedby",uploadedby);
+    formData.append("file",file);
+    console.log(id,FileName,Subject,Type,uploadedby,file)
+    const result = await axios.post("http://localhost:3500/upload-files",formData,{
+      headers: {"Content-Type":"multipart/form-data"},
+    });
+    console.log(result);
 
-      console.log(response.data);
-    } catch (error) {
-      console.error('Error uploading file:', error);
-    }
-  
-  };
+  }
   
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={submitImage}>
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">Upload Files</h2>
@@ -64,7 +48,8 @@ export default function Example() {
                   autoComplete="Id"
                   className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                   placeholder="Unique Identifier"
-                  onChange={onChange}
+                  required
+                  onChange= {(e)=> setId(e.target.value)}
                 />
               </div>
             </div>
@@ -83,7 +68,8 @@ export default function Example() {
                     autoComplete="title"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="Antibody Panel"
-                    onChange={onChange}
+                    required
+                    onChange={(e)=> setFileName(e.target.value)}
                   />
                 </div>
               </div>
@@ -101,7 +87,8 @@ export default function Example() {
                   rows={3}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   defaultValue={''}
-                  onChange={onChange}
+                  required
+                  onChange={(e)=> setSubject(e.target.value)}
                 />
               </div>
             </div>
@@ -122,6 +109,7 @@ export default function Example() {
                       name="file-upload"
                       type="file"
                       className="sr-only"
+                      required
                       onChange={(e) => setFile(e.target.files[0])}
                     />
                   </label>
@@ -149,6 +137,7 @@ export default function Example() {
                     name="file-type"
                     type="radio"
                     className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    onChange={(e)=> setType(e.target.value)}
                   />
                   <label htmlFor="PDF-file" className="block text-sm font-medium leading-6 text-gray-900">
                     PDF
@@ -160,6 +149,7 @@ export default function Example() {
                     name="file-type"
                     type="radio"
                     className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    onChange={(e)=> setType(e.target.value)}
                   />
                   <label htmlFor="word-file" className="block text-sm font-medium leading-6 text-gray-900">
                     Word  
@@ -171,6 +161,7 @@ export default function Example() {
                     name="file-type"
                     type="radio"
                     className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    onChange={(e)=> setType(e.target.value)}
                   />
                   <label htmlFor="presentation" className="block text-sm font-medium leading-6 text-gray-900">
                     Presentation
@@ -195,7 +186,8 @@ export default function Example() {
                     autoComplete="uploaded"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="Antibody Panel"
-                    onChange={onChange}
+                    required
+                    onChange={(e)=> setuploadedby(e.target.value)}
                   />
                 </div>
               </div>
