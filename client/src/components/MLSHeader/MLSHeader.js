@@ -14,9 +14,9 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 
 const subjects = [
-  { name: 'Immunohematology (Blood Bank)', description: 'The study of antigen-antibody reactions associated with blood transfusions', href: '#', icon: ChartPieIcon },
-  { name: 'Immunology', description: 'The study of the immune system', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Microbiology', description: 'The study of the biology of microscopic organisms', href: '#', icon: FingerPrintIcon },
+  { name: 'Immunohematology (Blood Bank)', description: 'The study of antigen-antibody reactions associated with blood transfusions', href: '/immunohematology', icon: ChartPieIcon },
+  { name: 'Immunology', description: 'The study of the immune system', href: '/immunology', icon: CursorArrowRaysIcon },
+  { name: 'Microbiology', description: 'The study of the biology of microscopic organisms', href: '/microbiology', icon: FingerPrintIcon },
   { name: 'Hematology', description: 'The study of blood and blood disorders', href: '#', icon: SquaresPlusIcon },
   { name: 'Urinalysis', description: 'The study of urine and other bodily fluids', href: '#', icon: ArrowPathIcon },
   { name: 'Clinical Chemistry', description: 'The study of analysis of chemical substances within the body', href: '#', icon: ArrowPathIcon },

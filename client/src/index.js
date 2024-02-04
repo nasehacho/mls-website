@@ -5,6 +5,7 @@ import App from './App';
 import UploadFile from './components/UploadFile/UploadFile'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import SubjectPage from './components/SubjectPage/SubjectPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +14,8 @@ root.render(
     <Routes>
       <Route path="/" element={<App/>} />
       <Route path="/home" element={<App/>} />
-      <Route path="/upload" element={<UploadFile/>} />      
+      <Route path="/upload" element={<UploadFile/>} />  
+      <Route path="/subject/:subject" element={ <SubjectPage  /> } />     
     </Routes>
     </BrowserRouter>
   </React.StrictMode>
