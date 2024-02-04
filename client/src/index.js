@@ -5,18 +5,18 @@ import App from './App';
 import UploadFile from './components/UploadFile/UploadFile'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ChatApp from './components/ChatApp/ChatApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<App/>} />
       <Route path="/home" element={<App/>} />
       <Route path="/upload" element={<UploadFile/>} />      
+      <Route path="/discuss" element={<ChatApp/>} />      
     </Routes>
     </BrowserRouter>
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
