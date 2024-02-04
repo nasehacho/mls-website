@@ -94,7 +94,7 @@ const MLSHeader = () => {
           <a href="/upload" className="text-sm font-semibold leading-6 text-gray-900">
             Upload Resources
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="/discuss" className="text-sm font-semibold leading-6 text-gray-900">
             Discuss
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
