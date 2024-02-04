@@ -91,7 +91,7 @@ const MLSHeader = () => {
             </Transition>
           </Popover>
 
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="/upload" className="text-sm font-semibold leading-6 text-gray-900">
             Upload Resources
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
