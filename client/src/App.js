@@ -9,7 +9,6 @@ function App() {
     <>
       <MLSHeader />
       <RecResources />
-      <UploadFile />
     </>
   );
 }

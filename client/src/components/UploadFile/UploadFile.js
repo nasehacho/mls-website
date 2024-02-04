@@ -1,17 +1,3 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
 export default function Example() {
@@ -47,7 +33,7 @@ export default function Example() {
 
             <div className="col-span-full">
               <label htmlFor="about" className="block text-sm font-medium leading-6 text-gray-900">
-                About
+                Subject
               </label>
               <div className="mt-2">
                 <textarea
@@ -58,18 +44,16 @@ export default function Example() {
                   defaultValue={''}
                 />
               </div>
-              <p className="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about the file you are uploading.</p>
             </div>
 
 
 
             <div className="col-span-full">
               <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
-                Cover photo
+                Upload resource document
               </label>
               <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                 <div className="text-center">
-                  <PhotoIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />
                   <div className="mt-4 flex text-sm leading-6 text-gray-600">
                     <label
                       htmlFor="file-upload"
@@ -80,7 +64,7 @@ export default function Example() {
                     </label>
                     <p className="pl-1">or drag and drop</p>
                   </div>
-                  <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                  <p className="text-xs leading-5 text-gray-600">PNG, JPG, PPX up to 10MB</p>
                 </div>
               </div>
             </div>
