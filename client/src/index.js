@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import AboutMLS from './components/AboutMLS/AboutMLS'
 import UploadFile from './components/UploadFile/UploadFile'
+import Discussion from './components/Discussion/Disussion'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -13,7 +15,9 @@ root.render(
     <Routes>
       <Route path="/" element={<App/>} />
       <Route path="/home" element={<App/>} />
-      <Route path="/upload" element={<UploadFile/>} />      
+      <Route path="/about" element={<AboutMLS/>} /> 
+      <Route path="/upload" element={<UploadFile/>} /> 
+      <Route path="/discuss" element={<Discussion/>} />      
     </Routes>
     </BrowserRouter>
   </React.StrictMode>
